@@ -1,12 +1,12 @@
 /**
-* PHP Email Form Validation - v3.2
+* PHP Email Form Validation - v3.6
 * URL: https://bootstrapmade.com/php-email-form/
 * Author: BootstrapMade.com
 */
 (function () {
   "use strict";
 
-  let forms = document.querySelectorAll('.php-email-form');
+  let forms = document.querySelectorAll('.php-email-form1111');
 
   forms.forEach( function(e) {
     e.addEventListener('submit', function(event) {
@@ -17,10 +17,6 @@
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
       
-      if( ! action ) {
-        displayError(thisForm, 'The form action property is not set!')
-        return;
-      }
       thisForm.querySelector('.loading').classList.add('d-block');
       thisForm.querySelector('.error-message').classList.remove('d-block');
       thisForm.querySelector('.sent-message').classList.remove('d-block');
@@ -37,7 +33,7 @@
                 php_email_form_submit(thisForm, action, formData);
               })
             } catch(error) {
-              displayError(thisForm, error)
+              displayError(thisForm, error);
             }
           });
         } else {
@@ -57,7 +53,7 @@
     })
     .then(response => {
       if( response.ok ) {
-        return response.text()
+        return response.text();
       } else {
         throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
       }
